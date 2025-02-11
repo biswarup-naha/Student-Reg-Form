@@ -1,14 +1,6 @@
 @import "tailwindcss";
 
-/* .input-group input {
-  font-size: 16px;
-  color: gray;
-  background: transparent;
-  border: 1.2px solid #fff;
-  border-radius: 0.5rem;
-} */
-
-.input-group input:focus~label, .input-group input:enabled~label, .input-group select:valid~label {
+.input-group input:focus~label, .input-group input:valid~label, .input-group select:valid~label {
   top: 0;
   font-size: 0.95rem;
   color: #007aff;

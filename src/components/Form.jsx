@@ -35,6 +35,7 @@ const Form = () => {
                         value={values.name}
                         onChange={handleChange}
                         onBlur={handleBlur}
+                        required
                     /><label htmlFor="name" className='absolute top-1/2 left-1 px-1 -translate-y-1/2 text-slate-500 text-lg pointer-events-none bg-white transition-all-0.2s-ease '>{errors.name && touched.name ? <span className='text-red-500'>{errors.name}</span> : "Name"}</label>
                 </div>
                 <div className="flex flex-col relative input-group">
@@ -48,6 +49,7 @@ const Form = () => {
                         value={values.age}
                         onChange={handleChange}
                         onBlur={handleBlur}
+                        required
                     /><label htmlFor="age" className='absolute top-1/2 left-1 px-1 -translate-y-1/2 text-slate-500 text-lg pointer-events-none bg-white transition-all-0.2s-ease '>{errors.age && touched.age ? <span className='text-red-500'>{errors.age}</span> : "Age"}</label>
                 </div>
                 <div className="flex flex-col relative input-group">
@@ -60,6 +62,7 @@ const Form = () => {
                         value={values.email}
                         onChange={handleChange}
                         onBlur={handleBlur}
+                        required
                     /><label htmlFor="email" className='absolute top-1/2 left-1 px-1 -translate-y-1/2 text-slate-500 text-lg pointer-events-none bg-white transition-all-0.2s-ease '>{errors.email && touched.email ? <span className='text-red-500'>{errors.email}</span> : "Email"}</label>
                 </div>
                 <div className="flex flex-col relative input-group">
@@ -70,8 +73,9 @@ const Form = () => {
                         value={values.cs}
                         onChange={handleChange}
                         onBlur={handleBlur}
+                        required
                     >
-                        <option value="cs0">Select</option>
+                        <option value="" hidden>select</option>
                         <option value="cs1">Computer Science and Engineering</option>
                         <option value="cs2">
                             Electronics and Communication Engineering
