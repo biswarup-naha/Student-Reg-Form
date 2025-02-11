@@ -25,7 +25,7 @@ const Form = () => {
         <>
             <ToastContainer />
             <form className="bg-white rounded-lg px-10 py-10 flex flex-col gap-y-5 shadow-lg max-md:px-5 max-md:w-5/6" onSubmit={handleSubmit}>
-                <h1 className="text-center text-2xl font-extrabold mb-5 max-md:text-xl">Student Registration Form</h1>
+                <h1 className="text-center text-slate-700 text-2xl font-extrabold mb-5 max-md:text-xl">Student Registration Form</h1>
                 <Input name="name" type="text" handleChange={handleChange} handleBlur={handleBlur} values={values} errors={errors} touched={touched} />
                 <Input name="age" type="text" handleChange={handleChange} handleBlur={handleBlur} values={values} errors={errors} touched={touched} />
                 <Input name="email" type="email" handleChange={handleChange} handleBlur={handleBlur} values={values} errors={errors} touched={touched} />
