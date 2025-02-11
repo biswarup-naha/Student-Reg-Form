@@ -11,7 +11,7 @@ const Form = () => {
         cs: "",
     };
     const { values, errors, touched, handleChange, handleBlur, handleSubmit } = useFormik({
-        initialValues: initialValues,
+        initialValues,
         validationSchema: registerSchema,
         onSubmit: (values, action) => {
             console.log(JSON.stringify(values));
@@ -20,60 +20,53 @@ const Form = () => {
         },
     });
 
-    // console.log(errors);
     return (
         <>
             <ToastContainer />
             <form className="bg-white rounded-lg px-10 py-10 flex flex-col gap-y-5 shadow-lg" onSubmit={handleSubmit}>
-                <h1 className="text-center text-2xl font-bold">Student Registration Form</h1>
-                <div className="flex flex-col border border-gray-300 p-1">
-                    <label htmlFor="name">Name</label>
+                <h1 className="text-center text-2xl font-bold mb-5">Student Registration Form</h1>
+                <div className="relative flex flex-col input-group">  
                     <input
                         type="text"
                         id="name"
                         name="name"
-                        placeholder="Enter your name"
-                        className=" outline-none"
+                        placeholder=""
+                        className="outline-none h-15 bg-transparent border-2 border-gray-300 rounded-md"
                         value={values.name}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                    />
-                    {errors.name && touched.name && <p className="text-red-500 text-xs">{errors.name}</p>}
+                    /><label htmlFor="name" className='absolute top-1/2 left-1 px-1 -translate-y-1/2 text-slate-500 text-lg pointer-events-none bg-white transition-all-0.2s-ease '>{errors.name && touched.name ? <span className='text-red-500'>{errors.name}</span> : "Name"}</label>
                 </div>
-                <div className="flex flex-col border border-gray-300 p-1">
-                    <label htmlFor="age">Age</label>
+                <div className="flex flex-col relative input-group">
+                    
                     <input
                         type="text"
                         id="age"
                         name="age"
-                        placeholder="Enter your name"
-                        className=" outline-none"
+                        placeholder=""
+                        className="outline-none h-15 bg-transparent border-2 border-gray-300 rounded-md"
                         value={values.age}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                    />
-                    {errors.age && touched.age && <p className="text-red-500 text-xs">{errors.age}</p>}
+                    /><label htmlFor="age" className='absolute top-1/2 left-1 px-1 -translate-y-1/2 text-slate-500 text-lg pointer-events-none bg-white transition-all-0.2s-ease '>{errors.age && touched.age ? <span className='text-red-500'>{errors.age}</span> : "Age"}</label>
                 </div>
-                <div className="flex flex-col border border-gray-300 p-1">
-                    <label htmlFor="email">Email</label>
+                <div className="flex flex-col relative input-group">
                     <input
                         type="email"
                         id="email"
                         name="email"
-                        placeholder="Enter your email"
-                        className=" outline-none"
+                        placeholder=""
+                        className="outline-none h-15 bg-transparent border-2 border-gray-300 rounded-md"
                         value={values.email}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                    />
-                    {errors.email && touched.email && <p className="text-red-500 text-xs">{errors.email}</p>}
+                    /><label htmlFor="email" className='absolute top-1/2 left-1 px-1 -translate-y-1/2 text-slate-500 text-lg pointer-events-none bg-white transition-all-0.2s-ease '>{errors.email && touched.email ? <span className='text-red-500'>{errors.email}</span> : "Email"}</label>
                 </div>
-                <div className="flex flex-col border border-gray-300 p-1">
-                    <label htmlFor="cs">Course selection</label>
+                <div className="flex flex-col relative input-group">
                     <select
                         name="cs"
                         id="cs"
-                        className="outline-none text-sm"
+                        className="outline-none h-15 bg-transparent border-2 border-gray-300 rounded-md"
                         value={values.cs}
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -89,8 +82,7 @@ const Form = () => {
                             Applied elctronics and instrumentation Engineering
                         </option>
                         <option value="cs6">Civil Engineering</option>
-                    </select>
-                    {errors.cs && touched.cs && <p className="text-red-500 text-xs">{errors.cs}</p>}
+                    </select><label htmlFor="cs" className='absolute top-1/2 left-1 px-1 -translate-y-1/2 text-slate-500 text-lg pointer-events-none bg-white transition-all-0.2s-ease '>{errors.cs && touched.cs ? <span className='text-red-500'>{errors.cs}</span> : "Course selection"}</label>
                 </div>
                 <button
                     type="submit"
