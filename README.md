@@ -21,8 +21,8 @@ Ensure you have **Node.js** and **npm/yarn** installed.
 ### Steps to Run the Project
 1. **Clone the repository:**
    ```sh
-   git clone https://github.com/your-repo/student-registration-form.git
-   cd student-registration-form
+   git clone https://github.com/biswarup-naha/Student-Reg-Form.git
+   cd Student-Reg-Form
    ```
 
 2. **Install dependencies:**
