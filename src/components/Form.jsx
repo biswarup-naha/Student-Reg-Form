@@ -2,6 +2,7 @@ import React from 'react';
 import { useFormik } from 'formik';
 import { registerSchema } from '../schemas';
 import { ToastContainer, toast } from 'react-toastify';
+import Input from './Input';
 
 const Form = () => {
     const initialValues = {
@@ -25,46 +26,9 @@ const Form = () => {
             <ToastContainer />
             <form className="bg-white rounded-lg px-10 py-10 flex flex-col gap-y-5 shadow-lg" onSubmit={handleSubmit}>
                 <h1 className="text-center text-2xl font-bold mb-5">Student Registration Form</h1>
-                <div className="relative flex flex-col input-group">  
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        placeholder=""
-                        className="outline-none h-15 bg-transparent border-2 border-gray-300 rounded-md"
-                        value={values.name}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        required
-                    /><label htmlFor="name" className='absolute top-1/2 left-1 px-1 -translate-y-1/2 text-slate-500 text-lg pointer-events-none bg-white transition-all-0.2s-ease '>{errors.name && touched.name ? <span className='text-red-500'>{errors.name}</span> : "Name"}</label>
-                </div>
-                <div className="flex flex-col relative input-group">
-                    
-                    <input
-                        type="text"
-                        id="age"
-                        name="age"
-                        placeholder=""
-                        className="outline-none h-15 bg-transparent border-2 border-gray-300 rounded-md"
-                        value={values.age}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        required
-                    /><label htmlFor="age" className='absolute top-1/2 left-1 px-1 -translate-y-1/2 text-slate-500 text-lg pointer-events-none bg-white transition-all-0.2s-ease '>{errors.age && touched.age ? <span className='text-red-500'>{errors.age}</span> : "Age"}</label>
-                </div>
-                <div className="flex flex-col relative input-group">
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder=""
-                        className="outline-none h-15 bg-transparent border-2 border-gray-300 rounded-md"
-                        value={values.email}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        required
-                    /><label htmlFor="email" className='absolute top-1/2 left-1 px-1 -translate-y-1/2 text-slate-500 text-lg pointer-events-none bg-white transition-all-0.2s-ease '>{errors.email && touched.email ? <span className='text-red-500'>{errors.email}</span> : "Email"}</label>
-                </div>
+                <Input name="name" type="text" handleChange={handleChange} handleBlur={handleBlur} values={values} errors={errors} touched={touched} />
+                <Input name="age" type="text" handleChange={handleChange} handleBlur={handleBlur} values={values} errors={errors} touched={touched} />
+                <Input name="email" type="email" handleChange={handleChange} handleBlur={handleBlur} values={values} errors={errors} touched={touched} />
                 <div className="flex flex-col relative input-group">
                     <select
                         name="cs"
@@ -90,7 +54,7 @@ const Form = () => {
                 </div>
                 <button
                     type="submit"
-                    className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg text-center w-full hover:bg-white hover:text-blue-500 border border-white hover:border-blue-500 transition-transform"
+                    className="mt-4 bg-blue-500 text-white px-4 py-3 rounded-lg text-center w-full hover:bg-white hover:text-blue-500 border border-white hover:border-blue-500 transition-transform"
                 >
                     Submit
                 </button>
