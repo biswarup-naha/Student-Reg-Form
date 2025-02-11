@@ -3,7 +3,7 @@ import Form from "./components/Form";
 
 function App() {
   return (
-    <div className="h-screen w-screen bg-gray-200 flex items-center justify-center">
+    <div className="h-screen w-screen bg-[url('../public/bg.avif')] bg-cover flex items-center justify-center">
       <Form />
     </div>      
   );
