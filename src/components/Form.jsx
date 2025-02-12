@@ -1,10 +1,12 @@
-import React from 'react';
+import { useState } from 'react';
 import { useFormik } from 'formik';
 import { registerSchema } from '../schemas';
 import { ToastContainer, toast } from 'react-toastify';
 import Input from './Input';
 
 const Form = () => {
+    const [show, setShow] = useState(false);
+
     const initialValues = {
         name: "",
         age: "",
@@ -15,15 +17,20 @@ const Form = () => {
         initialValues,
         validationSchema: registerSchema,
         onSubmit: (values, action) => {
-            console.log(JSON.stringify(values));
-            toast.success("Form submitted successfully");
-            action.resetForm();
+            setTimeout(() => {
+                setShow(false);
+                console.log(JSON.stringify(values));
+                toast.success("Form submitted successfully");
+                action.resetForm();
+            }, 3000);
+            setShow(true);
         },
     });
 
     return (
         <>
             <ToastContainer />
+            {show && <div className='absolute flex justify-center items-center h-screen w-screen bg-white/60 z-50'><div className="spinner"></div></div> }
             <form className="bg-white rounded-lg px-10 py-10 flex flex-col gap-y-5 shadow-lg max-md:px-5 max-md:w-5/6" onSubmit={handleSubmit}>
                 <h1 className="text-center text-slate-700 text-2xl font-extrabold mb-5 max-md:text-xl">Student Registration Form</h1>
                 <Input name="name" type="text" handleChange={handleChange} handleBlur={handleBlur} values={values} errors={errors} touched={touched} />
@@ -37,9 +44,9 @@ const Form = () => {
                         value={values.cs}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        required
+
                     >
-                        <option value="" hidden>select</option>
+                        <option value="" hidden> </option>
                         <option value="cs1">Computer Science and Engineering</option>
                         <option value="cs2">
                             Electronics and Communication Engineering
