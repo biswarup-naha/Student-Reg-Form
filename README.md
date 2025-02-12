@@ -4,14 +4,9 @@
 Build a student registration form using React and Formik.
 
 ## Features
-- React-based student registration form
-- Formik for form management
-- Input fields for:
-  - Name
-  - Age
-  - Email
-  - Course selection
-- Proper validation using Formik
+- Dynamic student registration form
+- Proper input validation and management
+- Persistent storage of form data
 - Form submission with console logging
 
 ## Installation & Setup

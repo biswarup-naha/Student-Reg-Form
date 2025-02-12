@@ -7,11 +7,18 @@ import Input from './Input';
 const Form = () => {
     const [show, setShow] = useState(false);
 
+    const clearStorage = () => {
+        localStorage.removeItem("name");
+        localStorage.removeItem("age");
+        localStorage.removeItem("email");
+        localStorage.removeItem("cs");
+    }
+
     const initialValues = {
-        name: "",
-        age: "",
-        email: "",
-        cs: "",
+        name: localStorage.getItem("name") || "",
+        age: localStorage.getItem("age") || "",
+        email: localStorage.getItem("email") || "",
+        cs: localStorage.getItem("cs") || "",
     };
     const { values, errors, touched, handleChange, handleBlur, handleSubmit } = useFormik({
         initialValues,
@@ -20,6 +27,7 @@ const Form = () => {
             setTimeout(() => {
                 setShow(false);
                 console.log(JSON.stringify(values));
+                clearStorage();
                 toast.success("Form submitted successfully");
                 action.resetForm();
             }, 3000);
