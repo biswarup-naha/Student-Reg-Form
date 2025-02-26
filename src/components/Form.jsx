@@ -7,7 +7,7 @@ import Input from './Input';
 const Form = () => {
     const [show, setShow] = useState(false);
 
-    const clearStorage = () => {
+    const clearStorage = async () => {
         localStorage.removeItem("name");
         localStorage.removeItem("age");
         localStorage.removeItem("email");
@@ -50,18 +50,21 @@ const Form = () => {
                         id="cs"
                         className="outline-none h-15 bg-transparent border-2 border-gray-300 rounded-md"
                         value={values.cs}
-                        onChange={handleChange}
+                        onChange={(e) => {
+                            handleChange(e);
+                            localStorage.setItem("cs", e.target.value);
+                        }}
                         onBlur={handleBlur}
 
                     >
                         <option value="" hidden> </option>
-                        <option value="cs1">Computer Science and Engineering</option>
-                        <option value="cs2">
+                        <option value="Computer Science and Engineering">Computer Science and Engineering</option>
+                        <option value="Electronics and Communication Engineering">
                             Electronics and Communication Engineering
                         </option>
-                        <option value="cs3">Information Technology</option>
-                        <option value="cs4">Electrical Engineering</option>
-                        <option value="cs5">
+                        <option value="Information Technology">Information Technology</option>
+                        <option value="Electrical Engineering">Electrical Engineering</option>
+                        <option value="Applied elctronics and instrumentation Engineering">
                             Applied elctronics and instrumentation Engineering
                         </option>
                         <option value="cs6">Civil Engineering</option>

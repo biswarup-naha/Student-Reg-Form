@@ -25,4 +25,4 @@ const Input = ({ name, type, handleChange, handleBlur, values, errors, touched }
     )
 }
 
-export default Input
+export default Input;
